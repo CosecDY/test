@@ -2,7 +2,7 @@ let currentCell;
 let startCell;
 
 // URL of the JSON file
-const urlServer = "https://stately-torte-c86deb.netlify.app";
+const urlServer = "http://localhost:3000";
 const jsonURL = `${urlServer}/readData`;
 
 // Function to fetch JSON data
