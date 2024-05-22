@@ -2,7 +2,8 @@ let currentCell;
 let startCell;
 
 // URL of the JSON file
-const jsonURL = "http://localhost:3000/readData";
+const urlServer = "https://stately-torte-c86deb.netlify.app";
+const jsonURL = `${urlServer}/readData`;
 
 // Function to fetch JSON data
 function fetchJSONData(url) {
@@ -150,7 +151,7 @@ function submitInsertForm() {
   };
   var arr = [data]
   console.log(arr);
-  fetch('http://localhost:3000/create', {
+  fetch(`${urlServer}/create`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -232,7 +233,7 @@ function openUpdateModal() {
 }
 
 function updateStudent(studentId, updatedData) {
-  fetch(`http://localhost:3000/update/${studentId}`, {
+  fetch(`${urlServer}/update/${studentId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -258,7 +259,7 @@ function updateStudent(studentId, updatedData) {
 function searchAndUpdateStudent() {
   var studentInput = document.getElementById("search_student_id");
   var studentId = studentInput.value;
-  fetch(`http://localhost:3000/search/${studentId}`)
+  fetch(`${urlServer}/search/${studentId}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Student not found");
@@ -304,7 +305,7 @@ function submitUpdateForm() {
     english_score: document.getElementById("english_score_update_modal").value,
   };
 
-  fetch(`http://localhost:3000/update/${studentId}`, {
+  fetch(`${urlServer}/update/${studentId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -336,7 +337,7 @@ function openDeleteModal() {
 function submitDeleteForm() {
   var studentInput = document.getElementById("student_id_modal");
   var studentId = studentInput.value;
-  fetch(`http://localhost:3000/delete/${studentId}`, {
+  fetch(`${urlServer}/delete/${studentId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

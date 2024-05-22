@@ -1,5 +1,7 @@
 let currentCell;
 
+const urlServer =  "https://stately-torte-c86deb.netlify.app";
+
 document.getElementById("upload-button").addEventListener("click", function () {
   document.getElementById("file-input").click();
 });
@@ -151,7 +153,7 @@ document
   });
 
 function sendDataToApi(data) {
-  fetch("http://localhost:3000/create", {
+  fetch(`${urlServer}/create`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
